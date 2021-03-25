@@ -1,0 +1,110 @@
+{
+  "aggregate": {
+    "timestamp": "2021-03-25T05:06:30.943Z",
+    "scenariosCreated": 2,
+    "scenariosCompleted": 2,
+    "requestsCompleted": 16,
+    "latency": {
+      "min": 192.5,
+      "max": 593,
+      "median": 288.6,
+      "p95": 536.6,
+      "p99": 593
+    },
+    "rps": {
+      "count": 16,
+      "mean": 4.58
+    },
+    "scenarioDuration": {
+      "min": 2504.1,
+      "max": 2612.6,
+      "median": 2558.3,
+      "p95": 2612.6,
+      "p99": 2612.6
+    },
+    "scenarioCounts": {
+      "Todoist Performance API Testing": 2
+    },
+    "errors": {},
+    "codes": {
+      "200": 6,
+      "204": 6,
+      "400": 4
+    },
+    "matches": 0,
+    "customStats": {},
+    "counters": {},
+    "scenariosAvoided": 0,
+    "phases": [
+      {
+        "duration": 1,
+        "arrivalRate": 1,
+        "name": "Phase 1"
+      },
+      {
+        "duration": 1,
+        "arrivalRate": 1,
+        "name": "Phase 2"
+      }
+    ]
+  },
+  "intermediate": [
+    {
+      "timestamp": "2021-03-25T05:06:30.941Z",
+      "scenariosCreated": 2,
+      "scenariosCompleted": 2,
+      "requestsCompleted": 16,
+      "latency": {
+        "min": 192.5,
+        "max": 593,
+        "median": 288.6,
+        "p95": 536.6,
+        "p99": 593
+      },
+      "rps": {
+        "count": 16,
+        "mean": 4.58
+      },
+      "scenarioDuration": {
+        "min": 2504.1,
+        "max": 2612.6,
+        "median": 2558.3,
+        "p95": 2612.6,
+        "p99": 2612.6
+      },
+      "scenarioCounts": {
+        "Todoist Performance API Testing": 2
+      },
+      "errors": {},
+      "codes": {
+        "200": 6,
+        "204": 6,
+        "400": 4
+      },
+      "matches": 0,
+      "latencies": [
+        592990982,
+        204281000,
+        193527620,
+        283882484,
+        257487152,
+        355973714,
+        199533804,
+        192472413,
+        304154409,
+        293241735,
+        239116890,
+        306954745,
+        198409393,
+        400609036,
+        404918636,
+        303215584
+      ],
+      "customStats": {},
+      "counters": {},
+      "concurrency": 0,
+      "pendingRequests": 0,
+      "scenariosAvoided": 0
+    }
+  ]
+}

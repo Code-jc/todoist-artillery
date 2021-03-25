@@ -1,0 +1,90 @@
+config:
+  target: "https://api.todoist.com"
+  phases:
+    - duration: 1
+      arrivalRate: 1
+      name: "Phase 1"
+    - duration: 1
+      arrivalRate: 1
+      name: "Phase 2"
+  variables:
+    tasksURL:
+      - "/rest/v1/tasks"
+    activeTask:
+      - "4670841683"
+    taskToUpdate:
+      - "4670841720"
+  defaults: 
+   headers: 
+     Authorization: Bearer {{ $processEnvironment.TOKEN }}
+     Content-type: application/json
+  #processor: "../variables/faker.js"
+scenarios:
+  - name: "Todoist Performance API Testing"
+    flow:
+
+      # Create a new task
+      - post:
+          url: "{{ tasksURL }}"
+          json:
+            content: "Buy Milk"
+            due_string: "tomorrow at 12:00"
+            due_lang: "en"  
+            priority: 4
+          expect:
+            - statusCode: 2xx
+          capture:
+             json: "$.id"
+             as: "id"
+      - log: "Task Id {{ id }}"
+
+      # Get active tasks
+      - get:
+          url: "{{ tasksURL }}"
+          expect: 
+            - statusCode: 2xx
+
+      # Get an active task
+      - get:
+          url: "{{ tasksURL }}/{{ activeTask }}"
+          expect: 
+            - statusCode: 2xx
+
+      # Update a task
+      - post:
+          url: "{{ tasksURL }}/{{ taskToUpdate }}"
+          # headers:
+          # X-Requested-Id: $(uuidgen) - getting bad request with this header
+          json:
+            content: "Buy Coffee"
+          expect:
+            - statusCode: 2xx
+
+      # Close a task
+      - post:
+          url: "{{ tasksURL }}/4670841738"
+          expect:
+            - statusCode: 2xx
+
+      # Reopen a task
+      - post:
+          url: "{{ tasksURL }}/4670841738/reopen"
+          expect:
+            - statusCode: 2xx
+      
+      # Delete a task
+      - delete:
+          url: "{{ tasksURL }}/4670841749"
+          expect:
+            - statusCode: 2xx
+      
+      # Change task status to 'Complete'
+      - post:
+          url: "{{ tasksURL }}/4670841720"
+          json:
+            completed: true
+          expect:
+            - statusCode: 2xx
+     
+
+  

@@ -1,0 +1,24 @@
+{
+  "name": "todoist-artillery",
+  "version": "1.0.0",
+  "description": "Performance testing practice with Artillery.io",
+  "main": "index.js",
+  "scripts": {
+    "test": "artillery run --output project/results/report.json project/performance.yml && artillery report --output project/results/report.html project/results/report.json",
+    "debug": "DEBUG=http* artillery run --output project/results/report.json project/performance.yml && artillery report --output project/results/report.html project/results/report.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Code-jc/todoist-artillery.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Code-jc/todoist-artillery/issues"
+  },
+  "homepage": "https://github.com/Code-jc/todoist-artillery#readme",
+  "dependencies": {
+    "artillery": "^1.6.2"
+  }
+}
